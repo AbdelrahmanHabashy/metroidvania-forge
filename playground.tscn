@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://8lidg4hqe43w"]
 
-[ext_resource type="Texture2D" uid="uid://dd860n3iw55m1" path="res://icon.svg" id="1_rupst"]
+[ext_resource type="Texture2D" uid="uid://5asqdg8k0jnu" path="res://Gemini_Generated_Image_szdid9szdid9szdi2.png" id="1_rupst"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(215, 121)
+[node name="GeminiGeneratedImageSzdid9Szdid9Szdi2" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(238, 148)
 texture = ExtResource("1_rupst")
