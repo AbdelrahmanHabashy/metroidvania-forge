@@ -18,6 +18,8 @@ func exit() -> void:
 	
 # what happens when Input is pressed 
 func handle_input (_event:InputEvent) -> PlayerState:
+	if _event.is_action_pressed("jump"):
+		return jump
 	return next_state
 	
 # what happens each process tick (frame) in this state
