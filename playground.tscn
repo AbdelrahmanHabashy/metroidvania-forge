@@ -15,14 +15,58 @@ size = Vector2(32, 32)
 
 [node name="Playground" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(240.5, 252)
 scale = Vector2(16.031, 1.5)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Right wall" type="Sprite2D" parent="."]
+position = Vector2(483.97824, 111.022354)
+rotation = 1.572605
+scale = Vector2(7.250534, 1.5)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Right wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Left wall" type="Sprite2D" parent="."]
+position = Vector2(-15, 122)
+rotation = 1.572605
+scale = Vector2(7.250534, 1.5)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Left wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Hill" type="Sprite2D" parent="."]
+position = Vector2(161, 231)
+rotation = 0.43570802
+scale = Vector2(4.499127, 2.299724)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hill"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hill/StaticBody2D"]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="High ground" type="Sprite2D" parent="."]
+position = Vector2(38.999996, 213.99998)
+rotation = 3.1464877
+scale = Vector2(4.499127, 2.9546196)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="High ground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="High ground/StaticBody2D"]
 shape = SubResource("RectangleShape2D_wt17y")
 
 [node name="Player" parent="." instance=ExtResource("1_rupst")]

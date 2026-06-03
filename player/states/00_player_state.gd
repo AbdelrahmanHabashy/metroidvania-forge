@@ -4,8 +4,11 @@ class_name PlayerState extends Node
 var player : Player
 var next_state: PlayerState = null
 
-#region ///
+#region /// State References 
 # refrence to all states 
+@onready var idle: PlayerStateIdle = %Idle
+@onready var run: PlayerStateRun = %Run
+
 #endregion
 
 # what happen when this state is initialized (setup for state make the state ready)
@@ -15,6 +18,7 @@ func init() -> void:
 
 # what happens when you enter this state
 func enter() -> void:
+	# for example: play animation
 	pass
 	
 
