@@ -7,6 +7,7 @@ const DENUG_JUMP_INDICATOR = preload("uid://cqppctwvp1td6")
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
+@onready var one_way_platform_ray_cast: RayCast2D = $OneWayPlatformRayCast
 
 #endregion
 
