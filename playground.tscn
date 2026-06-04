@@ -59,7 +59,7 @@ texture = SubResource("GradientTexture2D_rupst")
 shape = SubResource("RectangleShape2D_wt17y")
 
 [node name="High ground" type="Sprite2D" parent="."]
-position = Vector2(38.999996, 213.99998)
+position = Vector2(39, 214)
 rotation = 3.1464877
 scale = Vector2(4.499127, 2.9546196)
 texture = SubResource("GradientTexture2D_rupst")
@@ -67,6 +67,17 @@ texture = SubResource("GradientTexture2D_rupst")
 [node name="StaticBody2D" type="StaticBody2D" parent="High ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="High ground/StaticBody2D"]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Cube" type="Sprite2D" parent="."]
+position = Vector2(381.99997, 216.99998)
+rotation = 3.1464877
+scale = Vector2(2.1320884, 2.2557125)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cube"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube/StaticBody2D"]
 shape = SubResource("RectangleShape2D_wt17y")
 
 [node name="Player" parent="." instance=ExtResource("1_rupst")]

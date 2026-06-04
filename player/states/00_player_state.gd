@@ -8,7 +8,8 @@ var next_state: PlayerState = null
 # refrence to all states 
 @onready var idle: PlayerStateIdle = %Idle
 @onready var run: PlayerStateRun = %Run
-
+@onready var jump: PlayerStateJump = %Jump
+@onready var fall: PlayerStateFall = %Fall
 #endregion
 
 # what happen when this state is initialized (setup for state make the state ready)
