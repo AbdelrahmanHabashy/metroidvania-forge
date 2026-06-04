@@ -1,3 +1,6 @@
+# stopped at 25:27. video link 
+# https://www.youtube.com/watch?v=04C19Kbw10o&list=PLfcCiyd_V9GFL_xF8ID9vIt5bs0NJI4EK&index=11
+
 @icon("res://player/states/state.svg")
 class_name PlayerState extends Node
 
