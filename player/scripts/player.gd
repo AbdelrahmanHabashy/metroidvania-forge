@@ -3,6 +3,13 @@ class_name Player extends CharacterBody2D
 const DENUG_JUMP_INDICATOR = preload("uid://cqppctwvp1td6")
 
 
+#region /// @onready Variables
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var collision_stand: CollisionShape2D = $CollisionStand
+@onready var collision_crouch: CollisionShape2D = $CollisionCrouch
+
+#endregion
+
 #region /// export variables
 @export var move_speed:float = 100
 #endregion

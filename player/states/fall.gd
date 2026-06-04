@@ -47,7 +47,7 @@ func handle_input (_event:InputEvent) -> PlayerState:
 	
 # what happens each process tick (frame) in this state
 func process(_delta: float) -> PlayerState:
-	coyote_timer 	 -= _delta
+	coyote_timer -= _delta
 	buffer_timer -= _delta
 	
 	return next_state

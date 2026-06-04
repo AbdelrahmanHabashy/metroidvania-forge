@@ -5,11 +5,11 @@ var player : Player
 var next_state: PlayerState = null
 
 #region /// State References 
-# refrence to all states 
 @onready var idle: PlayerStateIdle = %Idle
 @onready var run: PlayerStateRun = %Run
 @onready var jump: PlayerStateJump = %Jump
 @onready var fall: PlayerStateFall = %Fall
+@onready var crouch: PlayerStateCrouch = %Crouch
 #endregion
 
 # what happen when this state is initialized (setup for state make the state ready)
