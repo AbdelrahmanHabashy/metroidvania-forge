@@ -8,7 +8,7 @@ func init() -> void:
 
 # what happens when you enter this state
 func enter() -> void:
-	# for example: play animation
+	player.animation_player.play("idle")
 	pass
 	
 

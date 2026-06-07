@@ -7,12 +7,12 @@ const DENUG_JUMP_INDICATOR = preload("uid://cqppctwvp1td6")
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
-@onready var one_way_platform_ray_cast: RayCast2D = $OneWayPlatformRayCast
-
+@onready var one_way_platform_shape_cast: ShapeCast2D = $OneWayPlatformShapeCast
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 #endregion
 
 #region /// export variables
-@export var move_speed:float = 100
+@export var move_speed:float = 150
 #endregion
 
 
@@ -105,13 +105,17 @@ func change_state(new_state:PlayerState) -> void:
 
 
 func update_direction() -> void:
-	#var prev_direction:Vector2 = direction
+	var prev_direction:Vector2 = direction
 	
 	var x_axis = Input.get_axis("left", "right")
 	var y_axis = Input.get_axis("up", "down")
 	direction = Vector2(x_axis, y_axis)
 	
-	# needs more work here
+	if prev_direction.x != direction.x:
+		if direction.x < 0: 	# checks if the player facing left
+			sprite.flip_h = true
+		elif direction.x > 0: 	# checks if the player facing right
+			sprite.flip_h = false
 	
 	pass
 
