@@ -34,6 +34,9 @@ func enter() -> void:
 func exit() -> void:
 	# resets the multiplier 
 	player.gravity_multiplier = 1.0
+	
+	# reseting buffer time to prevent jumping when falling twice too fast 
+	buffer_timer = 0
 	pass
 	
 # what happens when Input is pressed 
@@ -58,7 +61,8 @@ func process(_delta: float) -> PlayerState:
 # what happens each physics_process tick (time interval) in this state
 func physics_process(_delta: float) -> PlayerState:
 	if player.is_on_floor():
-		player.add_debug_indicator(Color.RED)
+		#player.add_debug_indicator(Color.RED)
+		#if buffer_timer > 0 && Input.is_action_pressed("jump"):
 		if buffer_timer > 0:
 			return jump
 		return idle
