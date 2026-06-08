@@ -10,6 +10,7 @@ func init() -> void:
 # what happens when you enter this state
 func enter() -> void:
 	player.animation_player.play("jump")
+	player.animation_player.pause()
 	
 	player.add_debug_indicator(Color.LIME_GREEN)
 	
@@ -31,6 +32,7 @@ func handle_input (_event:InputEvent) -> PlayerState:
 	
 # what happens each process tick (frame) in this state
 func process(_delta: float) -> PlayerState:
+	set_jump_frame()
 	
 	return next_state
 
@@ -47,3 +49,13 @@ func physics_process(_delta: float) -> PlayerState:
 	# the player move while jumping 
 	player.velocity.x = player.direction.x * player.move_speed
 	return next_state
+
+
+func set_jump_frame() -> void:
+	# As the velocity changes (e.g., from -400 up to 0), 
+	# the remap function calculates exactly where that value sits 
+	# within the input range and translates it into 
+	# the proportional time value within the output range (0 to 0.5).
+	var frame:float = remap(player.velocity.y, -jump_velocity, 0.0, 0.0, 0.5)
+	player.animation_player.seek(frame, true)
+	pass

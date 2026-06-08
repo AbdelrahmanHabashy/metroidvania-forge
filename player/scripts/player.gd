@@ -13,6 +13,7 @@ const DENUG_JUMP_INDICATOR = preload("uid://cqppctwvp1td6")
 
 #region /// export variables
 @export var move_speed:float = 150
+@export var max_fall_velocity:float = 600.0
 #endregion
 
 
@@ -50,6 +51,10 @@ func _process(_delta: float) -> void:
 # runs on a fixed time interval (ex: 60 times per second) INDEPENDENT of frame rate
 func _physics_process(_delta: float) -> void:
 	velocity.y += gravity * _delta * gravity_multiplier
+	
+	# Clamp checks if the first value is between the 2nd and 3rd values 
+	# if not, it returns the min if smaller and max if bigger
+	velocity.y = clampf(velocity.y, -10000.0, max_fall_velocity)
 	move_and_slide()
 	change_state(current_state.physics_process(_delta))
 	pass

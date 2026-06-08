@@ -17,7 +17,8 @@ func init() -> void:
 
 # what happens when you enter this state
 func enter() -> void:
-	# for example: play animation
+	player.animation_player.play("jump")
+	player.animation_player.pause()
 	
 	# to make the player fall faster than he goes up
 	player.gravity_multiplier = fall_gravity_multiplier
@@ -49,6 +50,7 @@ func handle_input (_event:InputEvent) -> PlayerState:
 func process(_delta: float) -> PlayerState:
 	coyote_timer -= _delta
 	buffer_timer -= _delta
+	set_jump_frame()
 	
 	return next_state
 
@@ -64,3 +66,13 @@ func physics_process(_delta: float) -> PlayerState:
 	# the player moves while falling
 	player.velocity.x = player.direction.x * player.move_speed
 	return next_state
+
+
+func set_jump_frame() -> void:
+	# As the velocity changes (e.g., from -400 up to 0), 
+	# the remap function calculates exactly where that value sits 
+	# within the input range and translates it into 
+	# the proportional time value within the output range (0 to 0.5).
+	var frame:float = remap(player.velocity.y, 0.0, player.max_fall_velocity, 0.5, 1.0)
+	player.animation_player.seek(frame, true)
+	pass
